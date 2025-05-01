@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Navbar from "../shared/navbar";
 
 export const metadata: Metadata = {
   title: "Haywhai Event-Booking",
@@ -12,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <div>
-      <h1>Nav</h1>
+      <Navbar/>
       {children}
       <h1>footer</h1>
     </div>
