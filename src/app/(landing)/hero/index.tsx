@@ -6,6 +6,7 @@ const Hero = () => {
         style={{
           backgroundImage:
             'url(https://img.freepik.com/free-photo/rear-view-large-group-music-fans-front-stage-music-concert-by-night-copy-space_637285-623.jpg?t=st=1746113972~exp=1746117572~hmac=5c9674870252f1f6402befd2446b2cd7e3efde47b797e4d21ba17b573e924520&w=1800)',
+            backgroundAttachment: 'scroll',
         }}
       >
         {/* Transparent black overlay to improve text visibility */}
