@@ -1,9 +1,13 @@
 import React from 'react'
 import Hero from './hero'
+import Hey from './hey'
 
 const page = () => {
   return (
-    <Hero/>
+   <div >
+     <Hero/>
+     <Hey/>
+   </div>
   )
 }
 

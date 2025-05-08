@@ -4,7 +4,15 @@ import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to manage the mobile menu
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const handleNav = () => {
+    setIsNavOpen(!isNavOpen);
+    if(!isNavOpen){
+      document.body.style.overflow = "hidden"
+    }else{
+      document.body.style.overflow = "scroll"
+    }
+  } // State to manage the mobile menu
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +37,7 @@ const Navbar = () => {
           {/* Hamburger Icon for mobile */}
           <div
             className="md:hidden flex items-center z-20"
-            onClick={() => setIsMenuOpen(!isMenuOpen)} // Toggle menu visibility
+            onClick={handleNav} // Toggle menu visibility
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +58,7 @@ const Navbar = () => {
           {/* Menu List */}
           <ul
             className={`md:flex space-x-6 md:text-xl transition-all duration-300 ease-in-out ${
-              isMenuOpen
+              isNavOpen
                 ? "absolute top-0 left-0 w-full h-screen bg-black/90 flex flex-col justify-center items-center text-white text-2xl space-y-6"
                 : "hidden"
             }`}
