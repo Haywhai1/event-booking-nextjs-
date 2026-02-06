@@ -1,12 +1,12 @@
 import React from 'react'
 import Hero from './hero'
-import Hey from './hey'
+import About from './About'
 
 const page = () => {
   return (
    <div >
      <Hero/>
-     <Hey/>
+     <About/>
    </div>
   )
 }

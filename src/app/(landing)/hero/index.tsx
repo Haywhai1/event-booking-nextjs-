@@ -1,11 +1,16 @@
+import Image from "next/image";
+
 const Hero = () => {
   return (
     <section className="relative w-full h-screen overflow-hidden">
       {/* Background Image as img tag */}
-      <img
+      <Image
         src="/images/hero-img.jpg"
         alt="Hero background"
-        className="absolute inset-0 w-full h-full object-cover object-center z-0"
+        fill
+        priority
+        sizes="100vw"
+        className="absolute inset-0 object-cover object-center z-0"
       />
 
       {/* Dark overlay */}
