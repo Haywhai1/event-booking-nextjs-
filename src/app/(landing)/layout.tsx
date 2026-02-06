@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "../shared/navbar";
+import Footer from "../shared/footer";
+import ScrollToTop from "../components/ScrollToTop";
 
 export const metadata: Metadata = {
   title: "Haywhai Event-Booking",
@@ -15,6 +17,8 @@ export default function RootLayout({
     <div>
       <Navbar/>
       {children}
+      <Footer/>
+        <ScrollToTop />
     </div>
   );
 }

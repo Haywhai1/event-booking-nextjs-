@@ -1,9 +1,54 @@
+"use client";
+
 import Image from "next/image";
+import { motion, Variants } from "framer-motion";
+
+
+const container: Variants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.25,
+    },
+  },
+};
+
+const fadeUp: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 40,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
+
+const buttonAnim: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+    scale: 0.9,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
 
 const Hero = () => {
   return (
     <section className="relative w-full h-screen overflow-hidden">
-      {/* Background Image as img tag */}
+      {/* Background Image */}
       <Image
         src="/images/hero-img.jpg"
         alt="Hero background"
@@ -18,20 +63,39 @@ const Hero = () => {
 
       {/* Hero content */}
       <div className="relative z-20 flex items-center justify-center h-full px-4 text-center text-white">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="max-w-2xl"
+        >
+          {/* Heading */}
+          <motion.h1
+            variants={fadeUp}
+            className="text-3xl md:text-6xl font-bold leading-tight"
+          >
             Welcome to Eventra
-          </h1>
-          <p className="mt-4 text-lg md:text-xl">
+          </motion.h1>
+
+          {/* Subtext */}
+          <motion.p
+            variants={fadeUp}
+            className="mt-4 text-lg md:text-xl text-gray-200"
+          >
             Seamless Event Planning. Effortless Booking.
-          </p>
-          <a
+          </motion.p>
+
+          {/* CTA Button */}
+          <motion.a
+            variants={buttonAnim}
             href="#services"
-            className="mt-6 inline-block px-6 py-3 bg-orange-600 hover:bg-orange-700 transition-colors rounded-lg text-white"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="mt-8 inline-block px-8 py-3 bg-orange-600 hover:bg-orange-700 transition-colors rounded-lg text-white font-semibold shadow-lg"
           >
             Start Booking
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );
